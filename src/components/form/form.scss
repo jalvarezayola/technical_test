@@ -1,0 +1,46 @@
+#formContainer{
+  width: 100vw;
+  height: calc(100vh - 68px);
+  margin-top: 80px;
+
+  #form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    h1{
+      margin: 0;
+      width: 500px;
+      max-width: 90vw;
+      font-family: 'Ubuntu-BoldItalic';
+    }
+  
+    p{
+      width: 500px;
+      max-width: 90vw;
+      font-family: 'Heebo-Regular';
+      font-size: 15px;
+      text-align: justify;
+    }
+    
+    button{
+      width: 320px;
+      margin: 32px 0;
+      height: 45px;
+      font-family: 'Ubuntu-Medium';
+      font-size: 18px;
+      border: none;
+      border-radius: 12px;
+      background-color: #ED5953;
+      color: white;
+      cursor: pointer;
+      
+      &:hover, &:active{ background-color: rgb(235, 77, 72) }
+      &:active{ transform: scale(.95) }
+    }
+  }
+}
+
+@media only screen and (max-width: 920px){
+  #formContainer{ margin-top: 120px }
+}
