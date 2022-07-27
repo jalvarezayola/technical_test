@@ -18,9 +18,9 @@ const Form = () => {
 
   const sendData = () => {
     const dataToSend = {
-      ...userData.name && { name: userData.name?.trim() },
-      ...userData.email && { email: userData.email?.trim() },
-      ...userData.cellphone && { cellphone: userData.cellphone?.trim() },
+      ...userData.name && { name: userData.name?.toString().trim() },
+      ...userData.email && { email: userData.email?.toString().trim() },
+      ...userData.cellphone && { cellphone: userData.cellphone?.toString().trim() },
       ...userData.age && { age: parseInt(userData.age, 10) },
     };
     const validated = validationData(dataToSend, setErrors);
@@ -49,7 +49,7 @@ const Form = () => {
         
         <Input
           label="Nombre"
-          value={userData.name}
+          value={userData.name || ''}
           onChange={(e) => setUserData({
             ...userData,
             name: e.target.value,
@@ -60,7 +60,7 @@ const Form = () => {
         
         <Input
           label="Correo"
-          value={userData.email}
+          value={userData.email || ''}
           onChange={(e) => setUserData({
             ...userData,
             email: e.target.value,
@@ -71,22 +71,24 @@ const Form = () => {
         
         <Input
           label="Teléfono"
-          value={userData.cellphone}
+          value={userData.cellphone || ''}
           onChange={(e) => setUserData({
             ...userData,
             cellphone: e.target.value,
           })}
+          type="number"
           errorMessage={errors.cellphone}
           placeholder="3204789444"
         />
         
         <Input
           label="Edad"
-          value={userData.age}
+          value={userData.age || ''}
           onChange={(e) => setUserData({
             ...userData,
             age: e.target.value,
           })}
+          type="number"
           errorMessage={errors.age}
           placeholder="26"
         />
