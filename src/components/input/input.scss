@@ -1,0 +1,48 @@
+.input{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 380px;
+  max-width: 90%;
+  margin: 8px 0;
+
+  & > span{
+    font-family: 'Heebo-Regular';
+    font-size: 14px;
+    color: #868686;
+  }
+
+  .contentInputAndMessage{
+    width: 280px;
+    max-width: 60vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    input{
+      outline: none;
+      background-color: #f5f8f9;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      height: 36px;
+      width: 100%;
+      padding: 0 8px;
+      transition: all 100ms ease;
+      font-family: 'Ubuntu-Regular';
+      font-size: 16px;
+
+      &::placeholder{ color: #cdd7df }
+      &.danger{ border: 2px solid red !important }
+    }
+    
+    span{
+      width: calc(100% - 20px);
+      margin: 0 10px;
+      font-family: 'Heebo-Regular';
+      font-size: 12px;
+      color: red;
+    }
+  }
+
+  &.focus input{ border: 2px solid #e8eef0 }
+}

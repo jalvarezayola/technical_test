@@ -1,0 +1,132 @@
+@import '../../themes/fonts.scss';
+
+#menuContainer{
+  background-color: #480095;
+
+  img{
+    height: 40px;
+    cursor: pointer;
+  }
+
+  ul{
+    list-style: none;
+
+    li{
+      font-family: 'Ubuntu-Medium';
+      font-size: 16px;
+      color: white;
+      cursor: pointer;
+      border-bottom: 2px transparent solid;
+
+      &.selected{ border-bottom: 2px white solid }
+    }
+  }
+}
+
+@media only screen and (min-width: 921px){
+  #backgroundMenu{ display: none }
+  #menuContainer{
+    width: 100%;
+    height: 68px;
+    padding: 0 48px 0 32px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    ul{
+      display: flex;
+
+      li{
+        margin: 0 6px;
+        padding: 4px 8px;
+      }
+    }
+  }
+  #buttonMenu{ display: none }
+}
+
+@media only screen and (max-width: 920px){
+  #backgroundMenu{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .25);
+    transition: all 200ms ease;
+    opacity: 0;
+    visibility: hidden;
+
+    &.visibleMenu{
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  #menuContainer{
+    position: fixed;
+    width: 240px;
+    height: 100vh;
+    right: -240px;
+    top: 0;
+    padding: 20px 20px;
+    box-sizing: border-box;
+    transition: all 200ms ease;
+  
+    img{
+      opacity: 0;
+      transition: all 200ms ease;
+    }
+  
+    ul{
+      width: 100%;
+      padding: 0;
+      margin-top: 40px;
+
+      li{
+        width: 100%;
+        margin: 0;
+        padding: 12px 0 12px 16px;
+        box-sizing: border-box;
+      }
+    }
+
+    &.visible{
+      right: 0;
+
+      img{ opacity: 1 }
+    }
+  }
+
+  #buttonMenu{
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 200ms ease;
+
+    svg{
+      width: 25px;
+      height: 25px;
+
+      #Menu path{
+        fill: black;
+        transition: all 200ms ease;
+      }
+    }
+
+    &.visibleMenu{
+      background-color: #480095;
+      
+      svg #Menu path{ fill: white }
+    }
+  }
+}
